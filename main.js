@@ -1,6 +1,6 @@
 let myData = {
   cart: 0,
-  brand: "Kreativan",
+  brand: "Vue.js",
   product: "T-Shirt",
   description: "U phasellus quisquam, eiusmod quasi laborum consequuntur.",
   details: ["50% cottom", "30% wool", "20% other"],
