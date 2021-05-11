@@ -195,4 +195,15 @@ Importing component
 <script src="./components/ProductDisplay.js"></script>
 ```
 
+## Communicating Events
+```
+methods: {
+  addToCart() {
+    this.$emit('add-to-cart', id)
+}
+```
 
+html
+```
+<product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+```

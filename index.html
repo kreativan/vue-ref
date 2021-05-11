@@ -30,8 +30,8 @@
 
       <div class="uk-container">
         
-        <product-display :premium="premium" @add-to-cart="updateCart" @reset-cart="resetCart"></product-display>
-        <offcanvas-cart :cart="cart"></offcanvas-cart>
+        <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+        <offcanvas-cart :cart="cart" @remove-from-cart="removeFromCart" @reset-cart="resetCart"></offcanvas-cart>
 
       </div>
 
@@ -42,12 +42,11 @@
 
     <!-- import components -->
     <script src="./components/ProductDisplay.js"></script>
-    <script src="./components/cart.js"></script>
+    <script src="./components/OffcanvasCart.js"></script>
 
     <!-- mount app -->
     <script>
       const mountedApp = app.mount('#app');
-      console.log(mountedApp.inStock);
     </script>
 
   </body>

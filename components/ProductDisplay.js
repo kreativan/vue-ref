@@ -38,7 +38,7 @@ app.component("product-display", {
                   <span 
                     v-for="(variant, index) in variants" 
                     :key="variant.id" 
-                    @mouseover="updateVariant(index)" 
+                    @click="updateVariant(index)" 
                     class="color-circle"
                     :class = "{ active: variant.isActive }"
                     :style="{ backgroundColor: variant.color, cursor: 'pointer' }">
@@ -115,9 +115,6 @@ app.component("product-display", {
       let title = this.product;
       let color = this.variants[this.selectedVariant].color;
       this.$emit("add-to-cart", id, title, color);
-    },
-    emptyCart() {
-      this.$emit("reset-cart");
     },
     updateVariant(index) {
       this.selectedVariant = index;
