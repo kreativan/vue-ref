@@ -47,7 +47,9 @@ A shorthand for `v-on`
 
 Mouseover
 ```
-<div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">{{ variant.color }}</div>
+<div v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)">
+  {{ variant.color }}
+</div>
 ```
 
 
@@ -64,8 +66,7 @@ Mouseover
 ```
 
 
-Class binding.    
-add disabledButton class if inStock is false
+Class binding. Add disabledButton class if inStock is false
 ```
 <button 
   class="button" 
