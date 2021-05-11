@@ -207,3 +207,51 @@ html
 ```
 <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
 ```
+
+
+## Forms & v-model
+
+```
+<form class="review-form" @submit.prevent="onSubmit">
+  ...
+  <input class="button" type="submit" value="Submit">  
+</form>
+```
+
+Data and methods
+```
+data() {
+  return {
+    name: '',
+    review: '',
+    rating: null
+   }
+ },
+ methods: {
+  onSubmit() {
+    let productReview = {
+      name: this.name,
+      review: this.review,
+      rating: this.rating,
+    }
+    this.$emit('review-submitted', productReview)
+
+    this.name = ''
+    this.review = ''
+    this.rating = null
+  }
+}
+```
+
+Basic validation
+```
+methods: {
+  onSubmit() {
+    if (this.name === '' || this.review === '' || this.rating === null) {
+      alert('Review is incomplete. Please fill out every field.')
+      return
+    }
+  ...
+  }
+}
+```

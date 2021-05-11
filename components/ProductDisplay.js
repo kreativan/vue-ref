@@ -19,7 +19,7 @@ app.component("product-display", {
             <div class="uk-width-expand@m">
               <div class="product-info">
 
-                <h1>{{ title }}</h1>
+                <h1 class="uk-h2 uk-margin-small">{{ title }}</h1>
                 
                 <span v-if="inStock > 0 && inStock < 10" class="uk-label uk-label-success">Almost Sold!</span>
                 <span v-else-if="inStock > 0" class="uk-label uk-label-success">In Stock</span>
@@ -35,17 +35,17 @@ app.component("product-display", {
                 </ul>
 
                 <div>
+                  <h4>Choose color:</h4>
                   <span 
                     v-for="(variant, index) in variants" 
                     :key="variant.id" 
                     @click="updateVariant(index)" 
                     class="color-circle"
-                    :class = "{ active: variant.isActive }"
+                    :class="{ active: variant.isActive }"
+                    :class="{ promo: variant.isPromo}"
                     :style="{ backgroundColor: variant.color, cursor: 'pointer' }">
                   </span>
                 </div>
-
-                <p>{{ description }}</p>
 
                 <div class="uk-margin">
                   <button 
@@ -135,7 +135,7 @@ app.component("product-display", {
       return this.variants[this.selectedVariant].isPromo;
     },
     snipping() {
-      return (this.premium) ? 'Free' : 2.99
-    }
+      return this.premium ? "Free" : 2.99;
+    },
   },
 });

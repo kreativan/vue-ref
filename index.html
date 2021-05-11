@@ -33,6 +33,15 @@
         <h1 class="uk-text-center uk-heading-small">Vue.js Product</h1>
         
         <product-display :premium="premium" @add-to-cart="updateCart"></product-display>
+
+        <div class="uk-margin-medium" v-if="reviews.length">
+          <review-list :reviews="reviews"></review-list>
+        </div>
+
+        <div class="uk-margin-medium-top uk-background-muted uk-padding">
+          <review-form @review-submited="addReview"></review-form>
+        </div>
+
         <offcanvas-cart :cart="cart" @remove-from-cart="removeFromCart" @reset-cart="resetCart"></offcanvas-cart>
 
       </div>
@@ -45,6 +54,8 @@
     <!-- import components -->
     <script src="./components/ProductDisplay.js"></script>
     <script src="./components/OffcanvasCart.js"></script>
+    <script src="./components/ReviewForm.js"></script>
+    <script src="./components/ReviewList.js"></script>
 
     <!-- mount app -->
     <script>
