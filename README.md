@@ -160,4 +160,39 @@ computed: {
 }
 ```
 
+## Components & Props
+```
+app.component('product-display', {
+  props: {
+    premium: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  template: 
+    /*html*/ 
+    `<div></div>`
+  ,
+  data() {
+  
+  },
+  methods: {
+
+  },
+  computed: {
+
+  }
+
+});
+```
+
+Importing component
+```
+<div id="app">
+  <product-display></product-display>
+</div>
+
+<script src="./components/ProductDisplay.js"></script>
+```
+
 

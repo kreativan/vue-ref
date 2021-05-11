@@ -30,76 +30,7 @@
 
       <div class="uk-container">
         
-        <div class="product" :style="style">
-          <div class="uk-grid" uk-grid>
-
-            <div class="uk-width-expand@m">
-              <div class="product-media uk-position-relative">
-                <!-- v-bind:src or use shorthand :src ...  any attribute -->
-                <img v-bind:src="image" v-bind:alt="product" width="580" height="420" />
-              </div>
-            </div>
-
-            <div class="uk-width-expand@m">
-              <div class="product-info">
-
-                <h1>{{ title }}</h1>
-                
-                <!-- v-if - v-else-if - v-else -->
-                <span v-if="inStock > 0 && inStock < 10" class="uk-label uk-label-success">Almost Sold!</span>
-                <span v-else-if="inStock > 0" class="uk-label uk-label-success">In Stock</span>
-                <span v-else class="uk-label uk-label-danger">Out of Stock</span>
-                <span v-if="inStock > 0 && inStock < 10" class="uk-label uk-label-warning uk-margin-small-left">Only {{ inStock }} left</span>
-
-                <!-- v-show toggles one element. Unlike v-if, v-show adding a display:none -->
-                <span v-show="isPromo" class="uk-label uk-margin-small-left">Promo</span>
-
-                <!-- v-for -->
-                <ul class="uk-list uk-list-disc uk-list-collapse">
-                  <li v-for="detail in details">{{ detail }}</li>
-                </ul>
-
-                <!-- 
-                  v-for and :key
-                  @mouseover event 
-                -->
-                <div>
-                  <span 
-                    v-for="(variant, index) in variants" 
-                    :key="variant.id" 
-                    @mouseover="updateVariant(index)" 
-                    class="color-circle"
-                    :class = "{ active: variant.isActive }"
-                    :style="{ backgroundColor: variant.color, cursor: 'pointer' }">
-                  </span>
-                </div>
-
-                <p>{{ description }}</p>
-
-                <div class="uk-margin">
-                  <!-- event handling v-on:click -->
-                  <button 
-                    v-on:click="addToCart"
-                    :disabled="!inStock || inStock < 1"
-                    :class="{ disabledButton: !inStock || inStock < 1 }"
-                    type="button" 
-                    class="uk-button uk-button-primary uk-margin-right"
-                  >
-                    Add to Cart
-                  </button>
-                  <!-- use event shorthand @click -->
-                  <button @click="emptyCart" type="button" class="uk-button uk-button-danger uk-margin-right">
-                    Reset Cart
-                  </button>
-                  <!-- v-bind short :href -->
-                  <a :href="url" class="uk-button uk-button-default">Details</a>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
+        <product-display :premium="premium"></product-display>
 
       </div>
 
@@ -107,6 +38,9 @@
 
     <!-- import app -->
     <script src="main.js"></script>
+
+    <!-- import component -->
+    <script src="./components/ProductDisplay.js"></script>
 
     <!-- mount app -->
     <script>
