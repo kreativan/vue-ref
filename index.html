@@ -45,13 +45,13 @@
             <div class="uk-width-expand@m">
               <div class="product-info">
 
-                <h1>{{ product }}</h1>
+                <h1>{{ title }}</h1>
                 
                 <!-- v-if - v-else-if - v-else -->
-                <span v-if="inStock && (stock < 10 && stock > 0)" class="uk-label uk-label-success">Almost Sold!</span>
-                <span v-else-if="inStock && stock != 0" class="uk-label uk-label-success">In Stock</span>
+                <span v-if="inStock > 0 && inStock < 10" class="uk-label uk-label-success">Almost Sold!</span>
+                <span v-else-if="inStock > 0" class="uk-label uk-label-success">In Stock</span>
                 <span v-else class="uk-label uk-label-danger">Out of Stock</span>
-                <span v-if="inStock && (stock < 20 && stock > 0)" class="uk-label uk-label-warning uk-margin-small-left">Only {{ stock }} left</span>
+                <span v-if="inStock > 0 && inStock < 10" class="uk-label uk-label-warning uk-margin-small-left">Only {{ inStock }} left</span>
 
                 <!-- v-show toggles one element. Unlike v-if, v-show adding a display:none -->
                 <span v-show="isPromo" class="uk-label uk-margin-small-left">Promo</span>
@@ -67,9 +67,9 @@
                 -->
                 <div>
                   <span 
-                    v-for="variant in variants" 
+                    v-for="(variant, index) in variants" 
                     :key="variant.id" 
-                    @mouseover="updateImage(variant.image)" 
+                    @mouseover="updateVariant(index)" 
                     class="color-circle"
                     :style="{ backgroundColor: variant.color }">
                   </span>
@@ -81,8 +81,8 @@
                   <!-- event handling v-on:click -->
                   <button 
                     v-on:click="addToCart"
-                    :disabled="!inStock || stock < 1"
-                    :class="{ disabledButton: !inStock || stock < 1 }"
+                    :disabled="!inStock || inStock < 1"
+                    :class="{ disabledButton: !inStock || inStock < 1 }"
                     type="button" 
                     class="uk-button uk-button-primary uk-margin-right"
                   >

@@ -1,4 +1,46 @@
+## Demo Data
+```
+let myData = {
+  cart: 0,
+  brand: "Kreativan",
+  product: "T-Shirt",
+  description: "U phasellus quisquam, eiusmod quasi laborum consequuntur.",
+  details: ["50% cottom", "30% wool", "20% other"],
+  url: "index.html",
+  selectedVariant: 0,
+  variants: [
+    {
+      id: 2234,
+      color: "DarkSlateBlue",
+      image: "./assets/images/shirt-blue.jpg",
+      quantity: 50,
+      isPromo: false,
+    },
+    {
+      id: 2235,
+      color: "DeepSkyBlue",
+      image: "./assets/images/shirt-blue-2.jpg",
+      quantity: 0,
+      isPromo: false,
+    },
+    {
+      id: 2235,
+      color: "Black",
+      image: "./assets/images/shirt-black.jpg",
+      quantity: 9,
+      isPromo: true,
+    },
+  ],
+  style: {
+    backgroundColor: "white",
+    padding: "30px",
+    boxShadow: "0 3px 10px rgba(0, 0, 0, 0.1)",
+  },
+};
+```
+
 ## Attribute Binding
+
 ```
 <img v-bind:src="image" v-bind:alt="product" />
 ```
@@ -76,3 +118,43 @@ Class binding. Add disabledButton class if inStock is false
   Add to Cart
 </button>
 ```
+
+## Computed Properties
+```
+computed: {
+  title() {
+    return this.brand + ' ' + this.product
+  }
+}
+```
+
+index.html
+```
+<div 
+  v-for="(variant, index) in variants" 
+  :key="variant.id" 
+  @mouseover="updateVariant(index)"
+  class="color-circle" 
+  :style="{ backgroundColor: variant.color }">
+</div>
+```
+
+main.js
+```
+methods: {
+  updateVariant(index) {
+    this.selectedVariant = index
+  }
+}
+
+computed: {
+  image() {
+    return this.variants[this.selectedVariant].image
+  },
+  inStock() {
+    return this.variants[this.selectedVariant].quantity
+  }
+}
+```
+
+
