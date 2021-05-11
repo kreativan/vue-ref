@@ -57,9 +57,6 @@ app.component("product-display", {
                   >
                     Add to Cart
                   </button>
-                  <button @click="emptyCart" type="button" class="uk-button uk-button-danger uk-margin-right">
-                    Reset Cart
-                  </button>
                   <a :href="url" class="uk-button uk-button-default">Details</a>
                 </div>
 
