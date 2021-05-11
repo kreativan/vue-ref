@@ -1,9 +1,13 @@
 ## Attribute Binding
 ```
 <img v-bind:src="image" v-bind:alt="product" />
-// shorthand 
+```
+
+Shorthand
+```
 <img :src="image" :alt="product" />
 ```
+
 
 ## Conditional Rendering
 ```
