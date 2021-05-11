@@ -13,6 +13,7 @@ let myData = {
       image: "./assets/images/shirt-blue.jpg",
       quantity: 50,
       isPromo: false,
+      isActive: true,
     },
     {
       id: 2235,
@@ -20,6 +21,7 @@ let myData = {
       image: "./assets/images/shirt-blue-2.jpg",
       quantity: 0,
       isPromo: false,
+      isActive: false,
     },
     {
       id: 2235,
@@ -27,6 +29,7 @@ let myData = {
       image: "./assets/images/shirt-black.jpg",
       quantity: 9,
       isPromo: true,
+      isActive: false,
     },
   ],
   style: {
@@ -50,6 +53,10 @@ const app = Vue.createApp({
     },
     updateVariant(index) {
       this.selectedVariant = index;
+      this.variants.forEach(e => {
+        e.isActive = false;
+      });
+      this.variants[this.selectedVariant].isActive = true;
     },
   },
   computed: {

@@ -71,7 +71,8 @@
                     :key="variant.id" 
                     @mouseover="updateVariant(index)" 
                     class="color-circle"
-                    :style="{ backgroundColor: variant.color }">
+                    :class = "{ active: variant.isActive }"
+                    :style="{ backgroundColor: variant.color, cursor: 'pointer' }">
                   </span>
                 </div>
 
