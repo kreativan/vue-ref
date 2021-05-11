@@ -148,6 +148,9 @@ methods: {
 }
 
 computed: {
+  title() {
+    return this.brand + " " + this.product;
+  },
   image() {
     return this.variants[this.selectedVariant].image
   },
