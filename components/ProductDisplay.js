@@ -111,10 +111,13 @@ app.component("product-display", {
   },
   methods: {
     addToCart() {
-      this.cart++; // this.cart reffers to cart in data
+      let id = this.variants[this.selectedVariant].id;
+      let title = this.product;
+      let color = this.variants[this.selectedVariant].color;
+      this.$emit("add-to-cart", id, title, color);
     },
     emptyCart() {
-      this.cart = 0;
+      this.$emit("reset-cart");
     },
     updateVariant(index) {
       this.selectedVariant = index;

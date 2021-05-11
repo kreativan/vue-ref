@@ -23,14 +23,15 @@
 
     <div id="app" class="uk-section uk-position-relative">
       
-      <div id="cart" class="uk-card uk-card-default uk-padding-small uk-position-top-right uk-position-small">
-        <span uk-icon="cart"></span>
-        <span class="uk-badge uk-margin-small-left">{{ cart }}</span>
-      </div>
+      <a href="#offcanvas-cart" uk-toggle id="cart" class="uk-card uk-card-default uk-padding-small uk-position-top-right uk-position-medium">
+        <span uk-icon="icon: cart; ratio: 1.5"></span>
+        <span v-if="cart.length > 0" class="uk-badge uk-margin-small-left">{{ cart.length }}</span>
+      </a>
 
       <div class="uk-container">
         
-        <product-display :premium="premium"></product-display>
+        <product-display :premium="premium" @add-to-cart="updateCart" @reset-cart="resetCart"></product-display>
+        <offcanvas-cart :cart="cart"></offcanvas-cart>
 
       </div>
 
@@ -39,8 +40,9 @@
     <!-- import app -->
     <script src="main.js"></script>
 
-    <!-- import component -->
+    <!-- import components -->
     <script src="./components/ProductDisplay.js"></script>
+    <script src="./components/cart.js"></script>
 
     <!-- mount app -->
     <script>

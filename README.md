@@ -1,6 +1,6 @@
 ## Demo Data
 ```
-let myData = {
+{
   cart: 0,
   brand: "Kreativan",
   product: "T-Shirt",
