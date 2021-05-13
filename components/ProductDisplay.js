@@ -41,8 +41,7 @@ app.component("product-display", {
                     :key="variant.id" 
                     @click="updateVariant(index)" 
                     class="color-circle"
-                    :class="{ active: variant.isActive }"
-                    :class="{ promo: variant.isPromo}"
+                    :class="{ active: variant.isActive, promo: variant.isPromo }"
                     :style="{ backgroundColor: variant.color, cursor: 'pointer' }">
                   </span>
                 </div>
