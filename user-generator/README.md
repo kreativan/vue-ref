@@ -1,5 +1,7 @@
 # Radnom User Generator
 
+https://kreativan.github.io/vue-ref/user-generator/    
+
 Fetching random users from: `https://randomuser.me/api/`
 
 ```

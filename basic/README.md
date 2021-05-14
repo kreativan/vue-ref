@@ -1,4 +1,4 @@
-https://kreativan.github.io/vue-ref/
+https://kreativan.github.io/vue-ref/basic/
 
 ## Demo Data
 ```
