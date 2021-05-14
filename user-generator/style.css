@@ -1,0 +1,16 @@
+:root {
+  --male-color: #1e87f0;
+  --female-color: #f0506e;
+}
+
+img {
+  border-radius: 50%;
+}
+
+img.male {
+  border:5px solid var(--male-color);
+}
+
+img.female {
+  border:5px solid var(--female-color);
+}

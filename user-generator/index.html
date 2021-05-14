@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Radnom User Generator</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/css/uikit.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.21/dist/js/uikit-icons.min.js"></script>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+  <div id="app" class="uk-flex uk-flex-middle uk-flex-center" uk-height-viewport>
+    <div>
+
+      <img v-bind:class="gender" v-bind:src="picture" v-bind:alt="fullName" />
+    
+      <h1>{{ firstName }} {{ lastName }}</h1>
+
+      <ul class="uk-list uk-list-striped uk-width-large">
+        <template v-for="(value, key, index) in userData" :key="index">
+          <li v-if="value != picture">
+            {{ key }} : <b>{{ value }}</b>
+          </li>
+        </template>
+      </ul>
+    
+      <button @click="getUser()" class="uk-button" :class="buttonClass">
+        Get Random User
+      </button>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
