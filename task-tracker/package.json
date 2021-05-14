@@ -1,0 +1,22 @@
+{
+  "name": "vue-kreativan",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "core-js": "^3.12.1",
+    "vue": "^3.0.11",
+    "uikit": "^3.6.21"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
+    "@vue/compiler-sfc": "^3.0.11",
+    "less": "^3.13.1",
+    "less-loader": "^5.0.0",
+    "vue-loader-v16": "^16.0.0-beta.5.4"
+  }
+}
