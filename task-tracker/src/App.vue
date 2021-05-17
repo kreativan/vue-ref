@@ -1,8 +1,8 @@
 <template>
   <div class="uk-section">
     <div class="uk-container uk-container-xsmall">
-    <Header title="Task Tracker" class="default" />
-    <AddTask @add-task="addTask" />
+    <Header title="Task Tracker" class="default" @open-modal="openModal" :show-modal="showModal" />
+    <AddTask @add-task="addTask" @close-modal="closeModal" />
     <Tasks :tasks="tasks" @delete-task="deleteTask" @toggle-reminder="toggleReminder" />
   </div>
   </div>
@@ -27,7 +27,8 @@ export default {
   },
   data() {
     return {
-      tasks: []
+      tasks: [],
+      showModal: false
     }
   },
   methods: {
@@ -45,6 +46,16 @@ export default {
     toggleReminder(id) {
       this.tasks = this.tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
     },
+    openModal() {
+      this.showModal = true;
+      let newTaskModalElement = document.querySelector("#new-task-modal");
+      UIkit.modal(newTaskModalElement).show();
+    },
+    closeModal() {
+      this.showModal = false;
+      let newTaskModalElement = document.querySelector("#new-task-modal");
+      UIkit.modal(newTaskModalElement).hide();
+    }
   },
   created() {
     this.tasks = [

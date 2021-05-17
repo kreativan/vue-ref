@@ -1,7 +1,11 @@
 <template>
   <header class="uk-flex uk-flex-between">
     <h1 class="uk-margin-remove">{{ title }}</h1>
-    <Button text="Add Task" buttonClass="primary" />
+    <Button 
+      :text="showModal ? 'New Task...' : 'Add Task'" 
+      buttonClass="primary" 
+      @btn-click="$emit('open-modal')"
+    />
   </header>
 </template>
 
@@ -11,7 +15,8 @@ import Button from './Button';
 export default {
   name: 'Header',
   props: {
-    title: String
+    title: String,
+    showModal: Boolean
   },
   components: {
     Button

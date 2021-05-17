@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "text": "Go to Sofia",
+      "day": "May 15 at 8:00am",
+      "reminder": false
+    },
+    {
+      "id": 2,
+      "text": "Hug Eevryone",
+      "day": "May 15 at 11:00am",
+      "reminder": true
+    },
+    {
+      "id": 3,
+      "text": "Go Back to Serbia",
+      "day": "May 16 at 20:00pm",
+      "reminder": false
+    },
+    {
+      "text": "Go back to Sofia again",
+      "day": "22.05.2021 08:00AM",
+      "reminder": true,
+      "id": 4
+    }
+  ]
+}
